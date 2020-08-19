@@ -10,7 +10,7 @@ module.exports= function({gulp, scripts, $g, $o, app, cordova_target_device, err
         [ folder, files_pattern, files_not_pattern ]= [ app.directories.src, "*.js", "*.sub.js" ],
         destination= app.directories.bin;
     const [jshint_cmd, ...jshint_rest]= scripts.jshint.split(" ");
-    const skip_final_jshint= [ "SVGIcon-min.js" ];
+    const skip_final_jshint= [ "module", "namespace", "bundle" ].map(tag=> `${app.name}${tag?"-":""}${tag}.min.js`);
     /* jshint -W061 */const gulp_place= $g.place({ variable_eval: (str)=> eval(str), filesCleaner: require("../gulp_cleanJSHINT.js") });/* jshint +W061 */
     return function(cb){
         let out_files= [];
@@ -25,9 +25,10 @@ module.exports= function({gulp, scripts, $g, $o, app, cordova_target_device, err
             return new Promise(function(resolve){
                 let main_stream= gulp.src([ `${folder}${files_pattern}`, `!${folder}${files_not_pattern}` ])
                         .pipe(gulp_place({ folder, string_wrapper: '"' }))
+                        .pipe($g.replace(/\/\/gulp\.remove\.line\r?\n/g, ""))
                         .pipe($g.replace(/[^\n]*(\/\*\s*gulp\s\*\/)?\/\*\s*global gulp_place\s*\*\/\r?\n/g,""));
         
-                main_stream= main_stream.pipe($g.minify_js({ noSource: false, mangle: true, compress: { conditionals: true, evaluate: true } }));
+                main_stream= main_stream.pipe($g.minify_js({ ext: { min: ".min.js" }, noSource: false, mangle: true, compress: { conditionals: true, evaluate: true } }));
         
                 main_stream
                     .on('error', error.handler)

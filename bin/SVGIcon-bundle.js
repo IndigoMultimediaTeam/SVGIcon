@@ -1,35 +1,24 @@
-const SVGIcon= (function SVGIcon_module(){
-    class EventFronta{
-        add(listener, method= "push"){
-            if(typeof this._listeners === "undefined") this._listeners= [];
-            this._listeners[method](listener);
-        }
-        serveAll(callback){
-            if(typeof this._listeners === "undefined") return true;
-            let fronta_item;
-            while((fronta_item= this._listeners.shift()))
-                callback(fronta_item);
-            this.clear();
-        }
-        clear(){
-            Reflect.deleteProperty(this, "_listeners");
-        }
+/* jshint node: true */
+/* global define, self */
+(function (root, factory) {
+    var depends= [];
+    var getDep;
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(depends, factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        getDep= function(name){ return require(name); };
+        module.exports = factory.apply(root, depends.map(getDep));
+    } else {
+        // Browser globals (root is window)
+        getDep= function(name){ return root[name]; };
+        root.SVGIcon = factory.apply(root, depends.map(getDep));
     }
-    const style= {
-        options: { allow: true, fit: "contain", size_variable: "--svg-icon-size" },
-        is_created: false,
-        create(){
-            if(!this.options.allow||this.is_created) return false;
-            const style_el= document.createElement("style");
-            style_el.type="text/css";
-            const { size_variable, fit }= this.options;
-            style_el.innerHTML=
-                `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
-                `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`;
-            document.head.appendChild(style_el);
-            this.is_created= true;
-        }
-    };
+}(typeof self !== 'undefined' ? self : this, function (/* ..._dependencies */) {
+    var _dependencies= Array.prototype.slice.call(arguments);
     const aliases= {
         options: { separator: "-" },
         list: null,
@@ -47,7 +36,38 @@ const SVGIcon= (function SVGIcon_module(){
         get: function(alias){ return this.list.get(alias); }
     };
     const createElement= document.createElementNS.bind(document, "http://www.w3.org/2000/svg");
+    class EventFronta{
+        add(listener, method= "push"){
+            if(typeof this._listeners === "undefined") this._listeners= [];
+            this._listeners[method](listener);
+        }
+        serveAll(callback){
+            if(typeof this._listeners === "undefined") return true;
+            let fronta_item;
+            while((fronta_item= this._listeners.shift()))
+                callback(fronta_item);
+            this.clear();
+        }
+        clear(){
+            Reflect.deleteProperty(this, "_listeners");
+        }
+    }
     const setHref= (element, value)=> element.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", value);
+    const style= {
+        options: { allow: true, fit: "contain", size_variable: "--svg-icon-size" },
+        is_created: false,
+        create(){
+            if(!this.options.allow||this.is_created) return false;
+            const style_el= document.createElement("style");
+            style_el.type="text/css";
+            const { size_variable, fit }= this.options;
+            style_el.innerHTML=
+                `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
+                `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`;
+            document.head.appendChild(style_el);
+            this.is_created= true;
+        }
+    };
     class SVGIcon extends HTMLElement{
         static changeOptions({ style: style_options, aliases: aliases_options }= {}){
             if(style_options) Object.assign(style.options, style_options);
@@ -98,5 +118,5 @@ const SVGIcon= (function SVGIcon_module(){
         }
     }
     customElements.define("svg-icon", SVGIcon);
-    return SVGIcon;
-})();
+    return { SVGIcon };
+}));
