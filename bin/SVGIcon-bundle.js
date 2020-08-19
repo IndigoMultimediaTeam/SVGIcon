@@ -18,6 +18,7 @@
         root.SVGIcon = factory.apply(root, depends.map(getDep));
     }
 }(typeof self !== 'undefined' ? self : this, function (/* ..._dependencies */) {
+    "use strict";
     var _dependencies= Array.prototype.slice.call(arguments);
     const aliases= {
         options: { separator: "-" },

@@ -1,4 +1,5 @@
 const SVGIcon= (function SVGIcon_iief(){
+    "use strict";
     const aliases= {
         options: { separator: "-" },
         list: null,
