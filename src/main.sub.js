@@ -1,5 +1,5 @@
 gulp_place("private/*.sub.js", "glob_once");/* global style, aliases, EventFronta, createElement, setHref */
-export class SVGIcon extends HTMLElement{
+export default class SVGIcon extends HTMLElement{
     static changeOptions({ style: style_options, aliases: aliases_options }= {}){
         if(style_options) Object.assign(style.options, style_options);
         if(aliases_options) Object.assign(aliases.options, aliases_options);
