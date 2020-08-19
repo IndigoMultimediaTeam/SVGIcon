@@ -7,11 +7,10 @@ export default class SVGIcon extends HTMLElement{
     static get aliases(){ return aliases; }
     /* instance methods */
     constructor(){
-        /* instance vars */
-        this._icon= null;
-        this._onmount_attributes= null;
         super();
         style.create();
+        /* instance vars */
+        this._icon= null;
         this._onmount_attributes= new EventFronta();
     }
     renderIcon(){
