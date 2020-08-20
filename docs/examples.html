@@ -83,33 +83,19 @@
             </xmp>
         </div>
         
-        <h2>Icons are also accesible with CSS</h2>
-        <p>TBD</p>
+        <h2>SVG with multiple colors via CSS vars</h2>
+        <p>This icon has setted colors with: <code>var(--announcements-color1, red)</code> and <code>var(--announcements-color2, currentColor)</code>.</p>
         <div>
             <div class="output"></div>
             <xmp contenteditable="">
                 <style>
-                    *{
-                        --size: 2em;
-                    }
-                    div{
-                        position: relative;
-                        width: 100%;
-                        height: 5em;
-                    }
-                    div:before{
-                        content: "";
-                        position: absolute;
-                        width: var(--size, 1em);
-                        height: var(--size, 1em);
-                        background: transparent url('examples_files/icons.svg') center center no-repeat;
-                        background-size: 40px;
-                    }
-                    .announcements:before{
-                        background-image: url("examples_files/icons.svg#announcements");
+                    svg-icon{
+                        --svg-icon-size: 3em;
+                        color: wheat;
+                        --announcements-color1: lightyellow;
                     }
                 </style>
-                <div class="announcements"></div>
+                <svg-icon use="icon-announcements"></svg-icon>
             </xmp>
         </div>
     </article>
