@@ -1,4 +1,13 @@
+/**
+ * @namespace
+ * @memberof svgicon
+ * @inner
+ */
 const style= {
+    /**
+     * Contains options for generating default styles for `<svg-icon>`
+     * @memberof svgicon~style
+     */
     options: { allow: true, fit: "contain", size_variable: "--svg-icon-size" },
     is_created: false,
     create(){
