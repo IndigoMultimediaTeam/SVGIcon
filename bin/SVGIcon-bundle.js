@@ -75,7 +75,7 @@
     const style= {
         /**
          * Contains options for generating default styles for `<svg-icon>`
-         * @memberof svgicon~style
+         * @memberof style
          */
         options: { allow: true, fit: "contain", size_variable: "--svg-icon-size" },
         is_created: false,

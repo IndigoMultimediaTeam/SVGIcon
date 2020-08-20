@@ -167,6 +167,15 @@
 
 * * *
 
+<a name="style.options"></a>
+
+### style.options
+>Contains options for generating default styles for `<svg-icon>`
+
+**Kind**: static property of [<code>style</code>](#style) <a name="style.options" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L60" title="SVGIcon-namespace.js:60"><small>(defined@60)</small></a>  
+
+* * *
+
 <a name="createElement"></a>
 
 ## createElement() ℗
