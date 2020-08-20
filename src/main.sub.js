@@ -1,11 +1,6 @@
-gulp_place("private/*.sub.js", "glob_once");/* global style, aliases, EventFronta, createElement, setHref */
-export default class SVGIcon extends HTMLElement{
-    static changeOptions({ style: style_options, aliases: aliases_options }= {}){
-        if(style_options) Object.assign(style.options, style_options);
-        if(aliases_options) Object.assign(aliases.options, aliases_options);
-    }
-    static get aliases(){ return aliases; }
-    /* instance methods */
+gulp_place("utils_private/*.sub.js", "glob_once");/* global style, EventFronta, createElement, setHref */
+gulp_place("utils/*.sub.js", "glob_once");/* global aliases */
+export default class SVGIconElement extends HTMLElement{
     constructor(){
         super();
         style.create();
@@ -47,4 +42,4 @@ export default class SVGIcon extends HTMLElement{
         
     }
 }
-customElements.define("svg-icon", SVGIcon);
+customElements.define("svg-icon", SVGIconElement);

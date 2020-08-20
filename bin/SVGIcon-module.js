@@ -1,19 +1,3 @@
-const aliases= {
-    options: { separator: "-" },
-    list: null,
-    set(alias, target){
-        if(!this.list) this.list= new Map();
-        return this.list.set(alias, target);
-    },
-    remove(alias){
-        if(!this.list) return false;
-        this.list.delete(alias);
-        if(!this.list.size) this.list= null;
-        return true;
-    },
-    has: function(alias){ return Boolean(this.list) && this.list.has(alias); },
-    get: function(alias){ return this.list.get(alias); }
-};
 const createElement= document.createElementNS.bind(document, "http://www.w3.org/2000/svg");
 class EventFronta{
     add(listener, method= "push"){
@@ -47,13 +31,28 @@ const style= {
         this.is_created= true;
     }
 };
-export default class SVGIcon extends HTMLElement{
-    static changeOptions({ style: style_options, aliases: aliases_options }= {}){
-        if(style_options) Object.assign(style.options, style_options);
-        if(aliases_options) Object.assign(aliases.options, aliases_options);
-    }
-    static get aliases(){ return aliases; }
-    /* instance methods */
+const aliases= {
+    options: { separator: "-" },
+    list: null,
+    has: function(alias){ return Boolean(this.list) && this.list.has(alias); },
+    get: function(alias){ return this.list.get(alias); }
+};
+
+export function setAlias(alias, target){
+    if(!aliases.list) aliases.list= new Map();
+    return aliases.list.set(alias, target);
+}
+export function removeAlias(alias){
+    if(!aliases.list) return false;
+    aliases.list.delete(alias);
+    if(!aliases.list.size) aliases.list= null;
+    return true;
+}
+export function changeOptions({ style: style_options, aliases: aliases_options }= {}){
+    if(style_options) Object.assign(style.options, style_options);
+    if(aliases_options) Object.assign(aliases.options, aliases_options);
+}
+export default class SVGIconElement extends HTMLElement{
     constructor(){
         super();
         style.create();
@@ -95,4 +94,4 @@ export default class SVGIcon extends HTMLElement{
         
     }
 }
-customElements.define("svg-icon", SVGIcon);
+customElements.define("svg-icon", SVGIconElement);
