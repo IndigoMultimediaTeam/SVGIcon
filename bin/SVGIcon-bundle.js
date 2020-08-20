@@ -21,19 +21,15 @@
     "use strict";
     var _dependencies= Array.prototype.slice.call(arguments);
     /**
-     * Grouping SVGIcon code
-     * @namespace svgicon
-     */
-    /**
      * Creates elemnet in *svg* namespace
-     * @memberof svgicon
-     * @inner
+     * @method
+     * @private
+     * @global
      */
     const createElement= document.createElementNS.bind(document, "http://www.w3.org/2000/svg");
     /**
      * Caching "events info" primary for `attributeChangedCallback`. This in fact caches all function arguments to reproduce calling later.
-     * @memberof svgicon
-     * @inner
+     * @private
      */
     class EventFronta{
         /**
@@ -65,16 +61,16 @@
     }
     /**
      * Sets 'xlink:href' for given element
-     * @memberof svgicon
-     * @inner
+     * @private
+     * @global
      * @param {SVGUseElement} element
      * @param {String} value
      */
     const setHref= (element, value)=> element.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", value);
     /**
      * @namespace
-     * @memberof svgicon
-     * @inner
+     * @private
+     * @global
      */
     const style= {
         /**
@@ -118,13 +114,10 @@
     }
     /**
      * SVGIcon Custom Element
-     * @class SVGIconElement
      * @extends HTMLElement
-     * @memberof svgicon
      * @public
-     * @static
      * @property {HTMLElement} _icon Current icon (`<use>` tag) reference
-     * @property {svgicon~EventFronta} _onmount_attributes Log events for 
+     * @property {EventFronta} _onmount_attributes Log events for 
      */
     class SVGIconElement extends HTMLElement{
         constructor(){
@@ -137,7 +130,7 @@
         /**
          * Prepare `<svg>` and `<use>` tag for icon.
          * @public
-         * @memberof svgicon.SVGIconElement
+         * @memberof SVGIconElement
          * @returns {HTMLElement} `<use>` reference
          */
         renderIcon(){
@@ -148,9 +141,9 @@
             return icon;
         }
         /**
-         * Sets `href` of current icon ({@link svgicon.SVGIconElement} properties)
+         * Sets `href` of current icon ({@link SVGIconElement} properties)
          * @public
-         * @memberof svgicon.SVGIconElement
+         * @memberof SVGIconElement
          */
         setIcon(href){
             if(!href||!this._icon) return false;
@@ -162,9 +155,9 @@
             );
         }
         /**
-         * Life cycle callback: This method is called when element is mounted to DOM. It renders icon ([renderIcon](#svgicon.SVGIconElement.SVGIconElement+renderIcon)) and process all cached *attributeChange* events.
+         * Life cycle callback: This method is called when element is mounted to DOM. It renders icon ({@link SVGIconElement#renderIcon}) and process all cached *attributeChange* events.
          * @public
-         * @memberof svgicon.SVGIconElement
+         * @memberof SVGIconElement
          */
         connectedCallback(){
             this._icon= this.renderIcon();
@@ -173,7 +166,7 @@
         /**
          * Life cycle callback: Called when element is removed from DOM. It clears icon and listenres.
          * @public
-         * @memberof svgicon.SVGIconElement
+         * @memberof SVGIconElement
          */
         disconnectedCallback(){
             this._icon= null;
@@ -181,9 +174,9 @@
         }
         static get observedAttributes(){ return [ "use" ]; }
         /**
-         * Life cycle callback: Element atribute change handler (in fact `use` only). It calls [setIcon](#svgicon.SVGIconElement.SVGIconElement+setIcon) or save events params into {@link svgicon.SVGIconElement} (if elemnt wasn’t mounted).
+         * Life cycle callback: Element atribute change handler (in fact `use` only). It calls {@link SVGIconElement#setIcon} or save events params into {@link SVGIconElement} (if elemnt wasn’t mounted).
          * @public
-         * @memberof svgicon.SVGIconElement
+         * @memberof SVGIconElement
          */
         attributeChangedCallback(...args){
             const [ property, old_value, new_value ]= args;

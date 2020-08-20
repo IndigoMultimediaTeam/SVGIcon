@@ -1,7 +1,6 @@
 /**
  * Caching "events info" primary for `attributeChangedCallback`. This in fact caches all function arguments to reproduce calling later.
- * @memberof svgicon
- * @inner
+ * @private
  */
 class EventFronta{
     /**

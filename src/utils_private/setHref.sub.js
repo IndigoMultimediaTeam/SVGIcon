@@ -1,7 +1,7 @@
 /**
  * Sets 'xlink:href' for given element
- * @memberof svgicon
- * @inner
+ * @private
+ * @global
  * @param {SVGUseElement} element
  * @param {String} value
  */

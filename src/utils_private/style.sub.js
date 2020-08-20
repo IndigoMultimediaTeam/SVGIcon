@@ -1,7 +1,7 @@
 /**
  * @namespace
- * @memberof svgicon
- * @inner
+ * @private
+ * @global
  */
 const style= {
     /**
