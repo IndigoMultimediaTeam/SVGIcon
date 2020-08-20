@@ -1,0 +1,30 @@
+<style>
+    *{
+        --svg-icon-size: 1.5em;
+    }
+    button{
+        background: transparent;
+        color: coral;
+        border: 1px solid currentColor;
+        border-radius: .5em;
+        font-size: var(--svg-icon-size);
+        display: flex;
+        align-items: center;
+        padding: calc(var(--svg-icon-size) / 6) calc(var(--svg-icon-size) / 3);
+        transition: all .25s;
+        cursor: pointer;
+        outline: none;
+    }
+    button:hover{
+        color: chocolate;
+    }
+    button:focus{
+        outline: dotted #666;
+    }
+    svg-icon{
+        padding-right: calc(var(--svg-icon-size) / 6);
+    }
+</style>
+<button>
+    <svg-icon use="icon-kpi"></svg-icon> Button
+</button>

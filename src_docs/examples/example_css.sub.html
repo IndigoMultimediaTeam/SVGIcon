@@ -1,0 +1,22 @@
+<style>
+    *{
+        --size: 2em;
+    }
+    div{
+        position: relative;
+        width: 100%;
+        height: 5em;
+    }
+    div:before{
+        content: "";
+        position: absolute;
+        width: var(--size, 1em);
+        height: var(--size, 1em);
+        background: transparent url('examples_files/icons.svg') center center no-repeat;
+        background-size: 40px;
+    }
+    .announcements:before{
+        background-image: url("examples_files/icons.svg#announcements");
+    }
+</style>
+<div class="announcements"></div>
