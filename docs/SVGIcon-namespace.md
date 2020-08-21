@@ -1,6 +1,8 @@
 # SVGIcon – Documentation
 [⇠ Go back to GitHub repository](https://github.com/IndigoMultimediaTeam/SVGIcon#readme)
-<p style="font-size: 2em;background: whitesmoke;text-align: center;">Overview</p>
+<hr>
+<p>Overview</p>
+<hr>
 
 ## Classes
 
@@ -54,7 +56,9 @@
 </dd>
 </dl>
 
-<p style="font-size: 2em;background: whitesmoke;text-align: center;">Content</p>
+<hr>
+<p>Content</p>
+<hr>
 
 <a name="EventFronta"></a>
 
