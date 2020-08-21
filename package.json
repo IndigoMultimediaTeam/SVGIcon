@@ -6,7 +6,7 @@
     "main": "gulpfile.js",
     "sequence": [
         "javascript",
-        "!examples",
+        "examples",
         "doc"
     ],
     "app_keys_map": [
