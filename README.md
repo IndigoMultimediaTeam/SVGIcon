@@ -25,4 +25,4 @@ Obviously the [Custom Elements (V1)](https://caniuse.com/#feat=custom-elementsv1
 ## More info
 - See [changeOptions(def)](./docs/SVGIcon-namespace.md#changeOptions), [setAlias(alias, target)](./docs/SVGIcon-namespace.md#setAlias) and [removeAlias(alias)](./docs/SVGIcon-namespace.md#removeAlias)
 - Or [full documentation](./docs/SVGIcon-namespace.md)
-- See [examples](https://indigomultimediateam.github.io/SVGIcon/docs/examples.html)
+- See [examples](https://indigomultimediateam.github.io/SVGIcon/examples.html)
