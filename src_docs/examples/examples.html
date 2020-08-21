@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>gulp_place("app.name", "variable") — Examples</title>
+    <script src="examples_files/gulp_place('app.name', 'variable')-namespace.min.js?v=gulp_place('app.version', 'variable')"></script>
+    <link rel="stylesheet" href="examples_files/examples.css">
+</head>
+<body>
+    <article>
+        <h1>gulp_place("app.name", "variable") — Examples</h1>
+        <a href="gulp_place('app.homepage', 'variable')">⇠ Go back to GitHub repository</a>
+        
+        <h2>Global options</h2>
+        <p>Following demonstrates alias settings, it is also possible use <code>removeAlias</code> and <code>changeOptions</code>. Changes doesn’t affect already generated icons and the last one isn't testable for <code>style</code> options (library doesn’t supprot dynamic change).</p>
+        <div>
+            <script contenteditable="" onkeyup="eval(this.innerHTML)">
+                SVGIcon.setAlias("icon", "examples_files/icons.svg#");
+                SVGIcon.changeOptions({ aliases: { separator: "-" } }); /* default settings */
+            </script>
+        </div>
+        gulp_place('__test_build__= {
+            headline: "Simple example",
+            description: "Example without applying any other lib feature",
+            example: "simple"
+        }', "eval")
+        gulp_place("./templates/xmp_example.sub.html", "file")
+        gulp_place('__test_build__= {
+            headline: "Simple example with styling and alias example",
+            description: "You can use setted alias for `nice`/`type-saving` icons names and styling with predefined css variable <code>--svg-icon-size</code> and <code>color</code> in case your svg icon has setted <code>fill: currentColor</code>.",
+            example: "simpleWithStyling"
+        }', "eval")
+        gulp_place("./templates/xmp_example.sub.html", "file")
+        gulp_place('__test_build__= {
+            headline: "More styling example",
+            description: "<code>&lt;svg-icon&gt;</code> is by default block element with `width/height` setted to <code>var(--svg-icon-size, 1em)</code>",
+            example: "styling"
+        }', "eval")
+        gulp_place("./templates/xmp_example.sub.html", "file")
+        gulp_place('__test_build__= {
+            headline: "SVG with multiple colors via CSS vars",
+            description: "This icon has setted colors with: <code>var(--announcements-color1, red)</code> and <code>var(--announcements-color2, currentColor)</code>.",
+            example: "multipleColors"
+        }', "eval")
+        gulp_place("./templates/xmp_example.sub.html", "file")
+    </article>
+    <script>
+        document.addEventListener("paste", function enableInScriptTags(ev){
+            ev.preventDefault();
+            document.execCommand('insertText', false, ev.clipboardData.getData('text/plain'));
+        });
+        document.addEventListener("keydown", function enableInScriptTags(ev){
+            if(ev.target.tagName!=="SCRIPT"&&ev.target.tagName!=="XMP") return false;
+            const { keyCode }= ev;
+            if(keyCode!==9&&keyCode!==13) return false;
+
+            ev.preventDefault();
+            document.execCommand('insertText', false, keyCode===9 ? "    " : "\n                ");
+        });
+        Array.from(document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "xmp")).forEach(function(el){
+            const target= el.previousElementSibling;
+            target.attachShadow({ mode: "open" })
+            const renderExample= render(el, target.shadowRoot);
+            renderExample();
+            el.addEventListener("keyup", renderExample);
+        });
+        function render(source, target){
+            return function(){
+                target.innerHTML= "<style>svg-icon { display: block; width: var(--svg-icon-size, 1em); height: var(--svg-icon-size, 1em); }svg-icon svg { width: 100%; height: 100%; object-fit: contain; }</style>"+source.textContent;
+            };
+        }
+    </script>
+</body>
+</html>

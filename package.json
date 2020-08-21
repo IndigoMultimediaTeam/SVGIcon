@@ -5,9 +5,28 @@
     "description": "Web component handling Icon System with SVG Sprites",
     "main": "gulpfile.js",
     "sequence": [
-        "javascript"
+        "javascript",
+        "!examples",
+        "doc"
     ],
-    "app_keys_map": [ ["name", "fullName"], ["version"], ["directories"], ["sequence"] ],
+    "app_keys_map": [
+        [
+            "name",
+            "fullName"
+        ],
+        [
+            "version"
+        ],
+        [
+            "homepage"
+        ],
+        [
+            "directories"
+        ],
+        [
+            "sequence"
+        ]
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "check": "node ./jaaJBT.js check && npm outdated",
@@ -40,9 +59,11 @@
     "devDependencies": {
         "gulp": "^4.0.2",
         "gulp-minify": ">=3.1.0",
-        "gulp-place": "^1.7.0",
+        "gulp-place": "^1.8.0",
+        "gulp-rename": "^2.0.0",
         "gulp-replace": "^1.0.0",
         "gulp-util": "^3.0.8",
+        "jsdoc-to-markdown": "^6.0.1",
         "jshint": "^2.12.0"
     },
     "jaaJBT": {
