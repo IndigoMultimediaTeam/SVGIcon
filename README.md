@@ -14,7 +14,7 @@ into your HTTML file and or
 Obviously the [Custom Elements (V1)](https://caniuse.com/#feat=custom-elementsv1) are in game, so you can safely use only in latest version of Firefox/Chrome/Chromium/Edge.
 
 ## Usages
-- SVG sprites file can looks like: `<svg>…<defs><svg id="icon_name" …</svg>…</defs></svg>` (e.g. [icons.svg](./docs/examples_files/icons.svg)).
+- SVG sprites file can looks like: `<svg>…<defs><svg id="icon_name" …</svg>…</defs></svg>` (e.g. [icons.svg](./docs/examples_files/icons.svg?short_path=2105ba1)).
 - Library and config scripts should be ideally placed before icons will be used (convenient place is `<head>`). There are several types of library in [*bin/*](./bin/) folder.
 - Web component is now fully functional
 
