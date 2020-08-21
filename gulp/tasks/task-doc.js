@@ -8,7 +8,7 @@ module.exports= function({app, $gulp_folder, gulp, error, $g, $o, $run}){
     const /* documentation functions */
         jsdoc2md= require('jsdoc-to-markdown'),
         generateDoc= files=> jsdoc2md.render(Object.assign({ files }, global_options)),
-        writeDoc= file=> markdown=> new Promise(function(resolve,reject){ $o.fs.writeFile(file, "# Library documentation\n"+markdown, err=> !err ? resolve() : reject(err)); });
+        writeDoc= file=> markdown=> new Promise(function(resolve,reject){ $o.fs.writeFile(file, `# ${app.name} – Documentation\n[⇠ Go back to GitHub repository](${app.homepage})\n`+markdown, err=> !err ? resolve() : reject(err)); });
     /* jshint -W061 */const gulp_place= $g.place({ variable_eval: (str)=> eval(str) });/* jshint +W061 */
     return function(cb){
         gulp.src([docs_modifications+"*_pre.js"])

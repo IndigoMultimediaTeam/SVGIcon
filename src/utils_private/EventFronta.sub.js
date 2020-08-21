@@ -5,8 +5,8 @@
 class EventFronta{
     /**
      * Refister new event
-     * @param {Array} event_info All necessary infos for later
-     * @param {String} [method="push"] In fact name of operation in `Array.prototype` (not used any more)
+     * @param {Array} event_info All necessary infos for later invoking
+     * @param {String} [method="push"] In fact name of operation in `Array.prototype` (not used any more). Understands as enum of: *push*, *unshift*.
      */
     add(event_info, method= "push"){
         if(typeof this._listeners === "undefined") this._listeners= [];
