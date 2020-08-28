@@ -26,3 +26,7 @@ Obviously the [Custom Elements (V1)](https://caniuse.com/#feat=custom-elementsv1
 - See [changeOptions(def)](./docs/SVGIcon-namespace.md#changeOptions), [setAlias(alias, target)](./docs/SVGIcon-namespace.md#setAlias) and [removeAlias(alias)](./docs/SVGIcon-namespace.md#removeAlias)
 - Or [full documentation](./docs/SVGIcon-namespace.md)
 - See [examples](https://indigomultimediateam.github.io/SVGIcon/examples.html)
+
+## Study resourses
+- [Icon Fonts vs. SVGs: An Ultimate Guide to Accessible Web Icons - DEV](https://dev.to/linuxfuture/icon-fonts-vs-svgs-an-ultimate-guide-to-accessible-web-icons-2lh6)
+- [SVG Fragment Identifier Linking](http://www.broken-links.com/tests/svg/fragment-identifiers.php)
