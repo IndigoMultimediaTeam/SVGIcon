@@ -3,127 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>SVGIcon — Examples</title>
-    <script src="examples_files/SVGIcon-namespace.min.js?v=1.0.0"></script>
-    <link rel="stylesheet" href="examples_files/examples.css">
+    <script src="CBoxLine.js"></script>
+    <title>c-box-line</title>
 </head>
 <body>
-    <article>
-        <h1>SVGIcon — Examples</h1>
-        <a href="https://github.com/IndigoMultimediaTeam/SVGIcon#readme">⇠ Go back to GitHub repository</a>
-        
-        <h2>Global options</h2>
-        <p>Following demonstrates alias settings, it is also possible use <code>removeAlias</code> and <code>changeOptions</code>. Changes doesn’t affect already generated icons and the last one isn't testable for <code>style</code> options (library doesn’t supprot dynamic change).</p>
-        <div>
-            <script contenteditable="" onkeyup="eval(this.innerHTML)">
-                SVGIcon.setAlias("icon", "examples_files/icons.svg#");
-                SVGIcon.changeOptions({ aliases: { separator: "-" } }); /* default settings */
-            </script>
+    <c-box-line position-bubble="30 25" position-circle="32 75">
+        <div style="width: fit-content; height: fit-content; background:#777;">
+            <br>
+            TEST ldnljfdn kjdhldndln
+            <br>
         </div>
-        
-        <h2>Simple example</h2>
-        <p>Example without applying any other lib feature</p>
-        <div>
-            <div class="output"></div>
-            <xmp contenteditable="">
-                <svg-icon use="examples_files/icons.svg#comment"></svg-icon>
-            </xmp>
-        </div>
-        
-        <h2>Simple example with styling and alias example</h2>
-        <p>You can use setted alias for 'nice'/'type-saving' icons names and styling with predefined css variable <code>--svg-icon-size</code> and <code>color</code> in case your svg icon has setted <code>fill: currentColor</code>.</p>
-        <div>
-            <div class="output"></div>
-            <xmp contenteditable="">
-                <style>
-                    svg-icon{
-                        --svg-icon-size: 3em;
-                        color: yellow;
-                    }
-                </style>
-                <svg-icon use="icon-comment"></svg-icon>
-            </xmp>
-        </div>
-        
-        <h2>More styling example</h2>
-        <p><code>&lt;svg-icon&gt;</code> is by default block element with 'width/height' setted to <code>var(--svg-icon-size, 1em)</code></p>
-        <div>
-            <div class="output"></div>
-            <xmp contenteditable="">
-                <style>
-                    *{
-                        --svg-icon-size: 1.5em;
-                    }
-                    button{
-                        background: transparent;
-                        color: coral;
-                        border: 1px solid currentColor;
-                        border-radius: .5em;
-                        font-size: var(--svg-icon-size);
-                        display: flex;
-                        align-items: center;
-                        padding: calc(var(--svg-icon-size) / 6) calc(var(--svg-icon-size) / 3);
-                        transition: all .25s;
-                        cursor: pointer;
-                        outline: none;
-                    }
-                    button:hover{
-                        color: chocolate;
-                    }
-                    button:focus{
-                        outline: dotted #666;
-                    }
-                    svg-icon{
-                        padding-right: calc(var(--svg-icon-size) / 6);
-                    }
-                </style>
-                <button>
-                    <svg-icon use="icon-kpi"></svg-icon> Button
-                </button>
-            </xmp>
-        </div>
-        
-        <h2>SVG with multiple colors via CSS vars</h2>
-        <p>This icon has setted colors with: <code>var(--announcements-color1, red)</code> and <code>var(--announcements-color2, currentColor)</code>.</p>
-        <div>
-            <div class="output"></div>
-            <xmp contenteditable="">
-                <style>
-                    svg-icon{
-                        --svg-icon-size: 3em;
-                        color: wheat;
-                        --announcements-color1: lightyellow;
-                    }
-                </style>
-                <svg-icon use="icon-announcements"></svg-icon>
-            </xmp>
-        </div>
-    </article>
-    <script>
-        document.addEventListener("paste", function enableInScriptTags(ev){
-            ev.preventDefault();
-            document.execCommand('insertText', false, ev.clipboardData.getData('text/plain'));
-        });
-        document.addEventListener("keydown", function enableInScriptTags(ev){
-            if(ev.target.tagName!=="SCRIPT"&&ev.target.tagName!=="XMP") return false;
-            const { keyCode }= ev;
-            if(keyCode!==9&&keyCode!==13) return false;
-
-            ev.preventDefault();
-            document.execCommand('insertText', false, keyCode===9 ? "    " : "\n                ");
-        });
-        Array.from(document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "xmp")).forEach(function(el){
-            const target= el.previousElementSibling;
-            target.attachShadow({ mode: "open" })
-            const renderExample= render(el, target.shadowRoot);
-            renderExample();
-            el.addEventListener("keyup", renderExample);
-        });
-        function render(source, target){
-            return function(){
-                target.innerHTML= "<style>svg-icon { display: block; width: var(--svg-icon-size, 1em); height: var(--svg-icon-size, 1em); }svg-icon svg { width: 100%; height: 100%; object-fit: contain; }</style>"+source.textContent;
-            };
-        }
-    </script>
+    </c-box-line>
 </body>
 </html>
