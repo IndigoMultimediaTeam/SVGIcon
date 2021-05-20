@@ -32,12 +32,12 @@ const style= {
      */
     create(){
         if(!this.options.allow||this.is_created) return false;
-        const style_el= document.createElement("style");
-        style_el.type="text/css";
         const { size_variable, fit }= this.options;
-        style_el.innerHTML=
-            `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
-            `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`;
+        const style_el= Object.assign(document.createElement("style"), {
+            type: "text/css",
+            innerHTML: `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
+                        `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`
+        });
         document.head.appendChild(style_el);
         this.is_created= true;
     }

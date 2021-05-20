@@ -119,7 +119,7 @@
 ## SVGIconElement ⇐ <code>HTMLElement</code>
 >SVGIcon Custom Element. When created new `<svg-icon>` tag it registers global style – see [style](#style). Also [EventFronta](#EventFronta) for attributes changes (before element mounitg) is registered there.
 
-**Kind**: global class <a name="SVGIconElement" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L182" title="SVGIcon-namespace.js:182"><small>(defined@182)</small></a>  
+**Kind**: global class <a name="SVGIconElement" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L183" title="SVGIcon-namespace.js:183"><small>(defined@183)</small></a>  
 **Extends**: <code>HTMLElement</code>  
 **Access**: public  
 **Properties**
@@ -148,7 +148,7 @@
 ### svgIconElement.renderIcon() ⇒ <code>HTMLElement</code>
 >Prepare `<svg>` and `<use>` tag for icon.
 
-**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+renderIcon" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L195" title="SVGIcon-namespace.js:195"><small>(defined@195)</small></a>  
+**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+renderIcon" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L196" title="SVGIcon-namespace.js:196"><small>(defined@196)</small></a>  
 **Returns**: <code>HTMLElement</code> - `<use>` reference  
 **Access**: public  
 
@@ -159,7 +159,7 @@
 ### svgIconElement.setIcon()
 >Sets `href` of current icon ([SVGIconElement](#SVGIconElement) properties)
 
-**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+setIcon" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L207" title="SVGIcon-namespace.js:207"><small>(defined@207)</small></a>  
+**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+setIcon" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L208" title="SVGIcon-namespace.js:208"><small>(defined@208)</small></a>  
 **Access**: public  
 
 * * *
@@ -169,7 +169,7 @@
 ### svgIconElement.connectedCallback()
 >Life cycle callback: This method is called when element is mounted to DOM. It renders icon ([renderIcon](#SVGIconElement+renderIcon)) and process all cached *attributeChange* events.
 
-**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+connectedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L221" title="SVGIcon-namespace.js:221"><small>(defined@221)</small></a>  
+**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+connectedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L222" title="SVGIcon-namespace.js:222"><small>(defined@222)</small></a>  
 **Access**: public  
 
 * * *
@@ -179,7 +179,7 @@
 ### svgIconElement.disconnectedCallback()
 >Life cycle callback: Called when element is removed from DOM. It clears icon and listenres.
 
-**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+disconnectedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L230" title="SVGIcon-namespace.js:230"><small>(defined@230)</small></a>  
+**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+disconnectedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L231" title="SVGIcon-namespace.js:231"><small>(defined@231)</small></a>  
 **Access**: public  
 
 * * *
@@ -189,7 +189,7 @@
 ### svgIconElement.attributeChangedCallback()
 >Life cycle callback: Element atribute change handler (see [observedAttributes](#SVGIconElement.observedAttributes)). It calls [setIcon](#SVGIconElement+setIcon) or save events params into [SVGIconElement](#SVGIconElement) (if element wasn’t mounted).
 
-**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+attributeChangedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L246" title="SVGIcon-namespace.js:246"><small>(defined@246)</small></a>  
+**Kind**: instance method of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement+attributeChangedCallback" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L249" title="SVGIcon-namespace.js:249"><small>(defined@249)</small></a>  
 **Access**: public  
 
 * * *
@@ -199,7 +199,7 @@
 ### SVGIconElement.observedAttributes
 >All properties theirs changes will be cached by [attributeChangedCallback](#SVGIconElement+attributeChangedCallback)
 
-**Kind**: static property of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement.observedAttributes" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L240" title="SVGIcon-namespace.js:240"><small>(defined@240)</small></a>  
+**Kind**: static property of [<code>SVGIconElement</code>](#SVGIconElement) <a name="SVGIconElement.observedAttributes" href="https://github.com/IndigoMultimediaTeam/SVGIcon/blob/master/bin/SVGIcon-namespace.js#L241" title="SVGIcon-namespace.js:241"><small>(defined@241)</small></a>  
 **Access**: public  
 
 * * *

@@ -1,5 +1,6 @@
 gulp_place("utils_private/*.sub.js", "glob_once");/* global style, EventFronta, createElement, setHref */
 gulp_place("utils/*.sub.js", "glob_once");/* global aliases */
+export const version= gulp_place("app.version", "variable");
 /**
  * SVGIcon Custom Element. When created new `<svg-icon>` tag it registers global style – see {@link style}. Also {@link EventFronta} for attributes changes (before element mounitg) is registered there.
  * @extends HTMLElement
@@ -67,6 +68,8 @@ export default class SVGIconElement extends HTMLElement{
      * @memberof SVGIconElement
      */
     static get observedAttributes(){ return [ "use" ]; }
+    get use(){ return this.getAttribute("use"); }
+    set use(use_new){ return this.setAttribute("use", use_new); }
     /**
      * Life cycle callback: Element atribute change handler (see {@link SVGIconElement.observedAttributes}). It calls {@link SVGIconElement#setIcon} or save events params into {@link SVGIconElement} (if element wasn’t mounted).
      * @public

@@ -101,12 +101,12 @@
          */
         create(){
             if(!this.options.allow||this.is_created) return false;
-            const style_el= document.createElement("style");
-            style_el.type="text/css";
             const { size_variable, fit }= this.options;
-            style_el.innerHTML=
-                `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
-                `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`;
+            const style_el= Object.assign(document.createElement("style"), {
+                type: "text/css",
+                innerHTML: `svg-icon { display: block; width: var(${size_variable}, 1em); height: var(${size_variable}, 1em); }` +
+                            `svg-icon svg { width: 100%; height: 100%; object-fit: ${fit}; }`
+            });
             document.head.appendChild(style_el);
             this.is_created= true;
         }
@@ -191,6 +191,7 @@
         if(style_options) Object.assign(style.options, style_options);
         if(aliases_options) Object.assign(aliases.options, aliases_options);
     }
+    const version= "1.1.0";
     /**
      * SVGIcon Custom Element. When created new `<svg-icon>` tag it registers global style – see {@link style}. Also {@link EventFronta} for attributes changes (before element mounitg) is registered there.
      * @extends HTMLElement
@@ -258,6 +259,8 @@
          * @memberof SVGIconElement
          */
         static get observedAttributes(){ return [ "use" ]; }
+        get use(){ return this.getAttribute("use"); }
+        set use(use_new){ return this.setAttribute("use", use_new); }
         /**
          * Life cycle callback: Element atribute change handler (see {@link SVGIconElement.observedAttributes}). It calls {@link SVGIconElement#setIcon} or save events params into {@link SVGIconElement} (if element wasn’t mounted).
          * @public
@@ -272,5 +275,5 @@
         }
     }
     customElements.define("svg-icon", SVGIconElement);
-    return { setAlias, removeAlias, changeOptions, SVGIconElement };
+    return { setAlias, removeAlias, changeOptions, version, SVGIconElement };
 }));

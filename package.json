@@ -1,7 +1,7 @@
 {
     "name": "svgicon",
     "fullName": "SVGIcon",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Web component handling Icon System with SVG Sprites",
     "main": "gulpfile.js",
     "sequence": [
